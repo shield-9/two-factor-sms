@@ -127,14 +127,14 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	}
 
 	/**
-	 * Generate and email the user token.
+	 * Generate and sms the user token.
 	 *
 	 * @since 0.1-dev
 	 *
 	 * @param WP_User $user WP_User object of the logged-in user.
 	 * @return boolean
 	 */
-	public function generate_and_email_token( $user ) {
+	public function generate_and_sms_token( $user ) {
 		require_once( TWO_FACTOR_SMS_DIR . 'includes/Twilio/Services/Twilio.php' );
 
 		$sid      = get_user_meta( $user->ID, self::ACCOUNT_SID_META_KEY,     true );
