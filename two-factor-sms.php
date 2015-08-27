@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/shield-9/two-factor-sms
  * Description: Add SMS support to "Two Factor" feature as a plugin
  * Author: Daisuke Takahashi (Extend Wings)
- * Version: 0.1-dev
+ * Version: 0.1
  * Author URI: httsp://www.extendwings.com
  */
 

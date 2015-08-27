@@ -4,7 +4,7 @@
 * **Tags**: authentication, two-factor, security, login, sms, mobile, twilio
 * **Requires at least**: 4.3
 * **Tested up to**: 4.3
-* **Stable tag**: (none)
+* **Stable tag**: 0.1
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
