@@ -53,6 +53,12 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		static $instance;
 		$class = __CLASS__;
 		if ( ! is_a( $instance, $class ) ) {
+			if ( did_action( 'plugins_loaded' ) ) {
+				self::load_plugin_textdomain();
+			} else {
+				add_action( 'plugins_loaded', array( __CLASS__, 'load_plugin_textdomain' ) );
+			}
+
 			$instance = new $class;
 		}
 		return $instance;
@@ -80,7 +86,7 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @since 0.1-dev
 	 */
 	public function get_label() {
-		return _x( 'SMS (Twilio)', 'Provider Label' );
+		return _x( 'SMS (Twilio)', 'Provider Label', 'two-factor-sms' );
 	}
 
 	/**
@@ -153,7 +159,7 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 				"To"   => $receiver,
 				"Body" => wp_strip_all_tags(
 					sprintf(
-						__( 'Your login confirmation code for %s is %s.' ),
+						__( 'Your login confirmation code for %s is %s.', 'two-factor-sms' ),
 						get_bloginfo( 'name' ),
 						$code
 					)
@@ -177,9 +183,9 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		if ( $this->generate_and_sms_token( $user ) ) {
 			require_once( ABSPATH . '/wp-admin/includes/template.php' );
 			?>
-			<p><?php esc_html_e( 'A verification code has been sent to the phone number associated with your account.' ); ?></p>
+			<p><?php esc_html_e( 'A verification code has been sent to the phone number associated with your account.', 'two-factor-sms' ); ?></p>
 			<p>
-				<label for="authcode"><?php esc_html_e( 'Verification Code:' ); ?></label>
+				<label for="authcode"><?php esc_html_e( 'Verification Code:', 'two-factor-sms' ); ?></label>
 				<input type="tel" name="two-factor-sms-code" id="authcode" class="input" value="" size="20" pattern="[0-9]*" />
 			</p>
 			<script type="text/javascript">
@@ -193,10 +199,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 				}, 200);
 			</script>
 			<?php
-			submit_button( __( 'Log In' ) );
+			submit_button( __( 'Log In', 'two-factor-sms' ) );
 		} else {
 			?>
-			<p><?php esc_html_e( 'An error occured while sending SMS.' ); ?></p>
+			<p><?php esc_html_e( 'An error occured while sending SMS.', 'two-factor-sms' ); ?></p>
 			<?php
 		}
 	}
@@ -240,7 +246,7 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	public function user_options( $user ) {
 		?>
 		<div>
-			<?php echo esc_html( __( 'You need Twilio account.' ) ); ?>
+			<?php echo esc_html( __( 'You need Twilio account.', 'two-factor-sms' ) ); ?>
 		</div>
 		<?php
 	}
@@ -266,22 +272,22 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		$receiver = get_user_meta( $user->ID, self::RECEIVER_NUMBER_META_KEY, true );
 		?>
 		<div class="twilio" id="twilio-section">
-			<h3><?php esc_html_e( 'Twilio' ); ?></h3>
+			<h3><?php esc_html_e( 'Twilio', 'two-factor-sms' ); ?></h3>
 			<table class="form-table">
 				<tr class="user-twilio-sid-wrap">
-					<th><label for="twilio-sid"><?php esc_html_e( 'AccountSID' ); ?> <span class="description"><?php esc_html_e( '(required)' ); ?></span></label></th>
+					<th><label for="twilio-sid"><?php esc_html_e( 'AccountSID' , 'two-factor-sms' ); ?> <span class="description"><?php esc_html_e( '(required)', 'two-factor-sms' ); ?></span></label></th>
 					<td><input type="email" name="twilio-sid" id="twilio-sid" value="<?php echo esc_attr( $sid ) ?>" class="regular-text code"></td>
 				</tr>
 				<tr class="user-twilio-token-wrap">
-					<th><label for="twilio-token"><?php esc_html_e( 'AuthToken' ); ?></label></th>
+					<th><label for="twilio-token"><?php esc_html_e( 'AuthToken', 'two-factor-sms' ); ?></label></th>
 					<td><input type="url" name="twilio-token" id="twilio-token" value="<?php echo esc_attr( $token ) ?>" class="regular-text code"></td>
 				</tr>
 				<tr class="user-twilio-sender-wrap">
-					<th><label for="twilio-sender"><?php esc_html_e( 'Sender Phone Number' ); ?></label></th>
+					<th><label for="twilio-sender"><?php esc_html_e( 'Sender Phone Number', 'two-factor-sms' ); ?></label></th>
 					<td><input type="tel" name="twilio-sender" id="twilio-sender" value="<?php echo esc_attr( $sender ) ?>" class="regular-text code"></td>
 				</tr>
 				<tr class="user-twilio-receiver-wrap">
-					<th><label for="twilio-receiver"><?php esc_html_e( 'Receiver Phone Number' ); ?></label></th>
+					<th><label for="twilio-receiver"><?php esc_html_e( 'Receiver Phone Number', 'two-factor-sms' ); ?></label></th>
 					<td><input type="tel" name="twilio-receiver" id="twilio-receiver" value="<?php echo esc_attr( $receiver ) ?>" class="regular-text code"></td>
 				</tr>
 			</table>
@@ -310,5 +316,9 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		update_user_meta( $user_id, self::AUTH_TOKEN_META_KEY,      $_POST['twilio-token'] );
 		update_user_meta( $user_id, self::SENDER_NUMBER_META_KEY,   $_POST['twilio-sender'] );
 		update_user_meta( $user_id, self::RECEIVER_NUMBER_META_KEY, $_POST['twilio-receiver'] );
+	}
+
+	public static function load_plugin_textdomain() {
+		load_plugin_textdomain( 'two-factor-sms', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 	}
 }

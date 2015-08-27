@@ -6,6 +6,8 @@
  * Author: Daisuke Takahashi (Extend Wings)
  * Version: 0.1
  * Author URI: httsp://www.extendwings.com
+ * Text Domain: two-factor-sms
+ * Domain Path: /languages
  */
 
 define( 'TWO_FACTOR_SMS_DIR', plugin_dir_path( __FILE__ ) );
