@@ -5,7 +5,7 @@
  * Description: Add SMS support to "Two Factor" feature as a plugin
  * Author: Daisuke Takahashi (Extend Wings)
  * Version: 0.1
- * Author URI: httsp://www.extendwings.com
+ * Author URI: https://www.extendwings.com
  * Text Domain: two-factor-sms
  * Domain Path: /languages
  */
