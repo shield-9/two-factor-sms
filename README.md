@@ -4,7 +4,7 @@
 * **Tags**: authentication, two-factor, security, login, sms, mobile, twilio
 * **Requires at least**: 4.3
 * **Tested up to**: 4.3
-* **Stable tag**: 0.1
+* **Stable tag**: 0.1.1
 * **License**: AGPLv3 or later
 * **License URI**: http://www.gnu.org/licenses/agpl.txt
 
@@ -49,10 +49,17 @@ Screenshots will be added soon.
 
 ## Changelog
 
+### 0.1.1
+* Fixed typo.
+* Added i18n support.
+
 ### 0.1.0
 * Initial Beta Release
 
 ## Upgrade Notice
+
+### 0.1.1
+* None
 
 ### 0.1.0
 * None
