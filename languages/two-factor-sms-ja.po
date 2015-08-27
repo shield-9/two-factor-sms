@@ -1,0 +1,91 @@
+# Copyright (C) 2015 Extend Wings <daisuke@extendwings.com>
+# This file is distributed under the same license as the Two Factor SMS package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Two Factor SMS 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/two-factor-sms\n"
+"POT-Creation-Date: 2015-08-28 01:55+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-08-28 02:03+0900\n"
+"Language-Team: Extend Wings <daisuke@extendwings.com>\n"
+"X-Generator: Poedit 1.8.4\n"
+"Last-Translator: Daisuke Takahashi <daisuke@extendwings.com>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
+
+#: class.two-factor-sms.php:85
+msgctxt "Provider Label"
+msgid "SMS (Twilio)"
+msgstr "SMS (Twilio)"
+
+#: class.two-factor-sms.php:158
+msgid "Your login confirmation code for %s is %s."
+msgstr "%s のログイン確認コードは %s です。"
+
+#: class.two-factor-sms.php:182
+msgid ""
+"A verification code has been sent to the phone number associated with your "
+"account."
+msgstr "アカウントに関連付けられた電話番号に認証コードが送信されました。"
+
+#: class.two-factor-sms.php:184
+msgid "Verification Code:"
+msgstr "認証コード:"
+
+#: class.two-factor-sms.php:198
+msgid "Log In"
+msgstr "ログイン"
+
+#: class.two-factor-sms.php:201
+msgid "An error occured while sending SMS."
+msgstr "SMS を送信中にエラーが発生しました。"
+
+#: class.two-factor-sms.php:245
+msgid "You need Twilio account."
+msgstr "Twilio アカウントが必要です。"
+
+#: class.two-factor-sms.php:271
+msgid "Twilio"
+msgstr "Twilio"
+
+#: class.two-factor-sms.php:274
+msgid "AccountSID"
+msgstr "AccountSID"
+
+#: class.two-factor-sms.php:274
+msgid "(required)"
+msgstr "(必須)"
+
+#: class.two-factor-sms.php:278
+msgid "AuthToken"
+msgstr "AuthToken"
+
+#: class.two-factor-sms.php:282
+msgid "Sender Phone Number"
+msgstr "送信元電話番号"
+
+#: class.two-factor-sms.php:286
+msgid "Receiver Phone Number"
+msgstr "受信先電話番号"
+
+#. Plugin Name of the plugin/theme
+msgid "Two Factor SMS"
+msgstr "Two Factor SMS"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/shield-9/two-factor-sms"
+msgstr "https://github.com/shield-9/two-factor-sms"
+
+#. Description of the plugin/theme
+msgid "Add SMS support to \"Two Factor\" feature as a plugin"
+msgstr "「Two Factor」プラグインに SMS の対応を追加します。"
+
+#. Author of the plugin/theme
+msgid "Daisuke Takahashi (Extend Wings)"
+msgstr "Daisuke Takahashi (Extend Wings)"
+
+#. Author URI of the plugin/theme
+msgid "https://www.extendwings.com"
+msgstr "https://www.extendwings.com"
