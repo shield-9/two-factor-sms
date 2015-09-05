@@ -292,19 +292,19 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		$receiver = get_user_meta( $user->ID, self::RECEIVER_NUMBER_META_KEY, true );
 		?>
 		<tr class="user-twilio-sid-wrap">
-			<th><label for="twilio-sid"><?php esc_html_e( 'AccountSID' , 'two-factor-sms' ); ?> <span class="description"><?php esc_html_e( '(required)', 'two-factor-sms' ); ?></span></label></th>
+			<th><label for="twilio-sid"><?php esc_html_e( 'AccountSID' , 'two-factor-sms' ); ?></label></th>
 			<td><input type="text" name="twilio-sms-sid" id="twilio-sms-sid" value="<?php echo esc_attr( $sid ) ?>" class="regular-text code"></td>
 		</tr>
 		<tr class="user-twilio-token-wrap">
-			<th><label for="twilio-token"><?php esc_html_e( 'AuthToken', 'two-factor-sms' ); ?> <span class="description"><?php esc_html_e( '(required)', 'two-factor-sms' ); ?></span></label></th>
+			<th><label for="twilio-token"><?php esc_html_e( 'AuthToken', 'two-factor-sms' ); ?></label></th>
 			<td><input type="password" name="twilio-sms-token" id="twilio-sms-token" value="<?php echo esc_attr( $token ) ?>" class="regular-text code"></td>
 		</tr>
 		<tr class="user-twilio-sender-wrap">
-			<th><label for="twilio-sender"><?php esc_html_e( 'Sender Phone Number', 'two-factor-sms' ); ?> <span class="description"><?php esc_html_e( '(required)', 'two-factor-sms' ); ?></span></label></th>
+			<th><label for="twilio-sender"><?php esc_html_e( 'Sender Phone Number', 'two-factor-sms' ); ?></label></th>
 			<td><input type="tel" name="twilio-sms-sender" id="twilio-sms-sender" value="<?php echo esc_attr( $sender ) ?>" class="regular-text code"></td>
 		</tr>
 		<tr class="user-twilio-receiver-wrap">
-			<th><label for="twilio-receiver"><?php esc_html_e( 'Receiver Phone Number', 'two-factor-sms' ); ?> <span class="description"><?php esc_html_e( '(required)', 'two-factor-sms' ); ?></span></label></th>
+			<th><label for="twilio-receiver"><?php esc_html_e( 'Receiver Phone Number', 'two-factor-sms' ); ?></label></th>
 			<td><input type="tel" name="twilio-sms-receiver" id="twilio-sms-receiver" value="<?php echo esc_attr( $receiver ) ?>" class="regular-text code"></td>
 		</tr>
 		<?php
