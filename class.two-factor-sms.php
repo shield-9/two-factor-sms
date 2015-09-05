@@ -181,6 +181,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @param WP_User $user WP_User object of the logged-in user.
 	 */
 	public function authentication_page( $user ) {
+		if ( ! $user ) {
+			return;
+		}
+
 		if ( $this->generate_and_sms_token( $user ) ) {
 			require_once( ABSPATH . '/wp-admin/includes/template.php' );
 			?>
@@ -217,6 +221,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @return boolean
 	 */
 	public function validate_authentication( $user ) {
+		if ( ! isset( $user->ID ) || ! isset( $_REQUEST['two-factor-sms-code'] ) ) {
+			return false;
+		}
+
 		return $this->validate_token( $user->ID, $_REQUEST['two-factor-sms-code'] );
 	}
 
@@ -229,6 +237,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @return boolean
 	 */
 	public function is_available_for_user( $user ) {
+		if ( ! $user ) {
+			return;
+		}
+
 		return (
 			get_user_meta( $user->ID, self::ACCOUNT_SID_META_KEY, true ) !== false
 			 && get_user_meta( $user->ID, self::AUTH_TOKEN_META_KEY, true ) !== false
