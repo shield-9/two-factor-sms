@@ -265,8 +265,6 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @param WP_User $user WP_User object of the logged-in user.
 	 */
 	public static function show_user_profile( $user ) {
-		wp_nonce_field( "user_twilio-{$user->ID}", '_nonce_user_twilio' );
-
 		$sid      = get_user_meta( $user->ID, self::ACCOUNT_SID_META_KEY, true );
 		$token    = get_user_meta( $user->ID, self::AUTH_TOKEN_META_KEY, true );
 		$sender   = get_user_meta( $user->ID, self::SENDER_NUMBER_META_KEY, true );
