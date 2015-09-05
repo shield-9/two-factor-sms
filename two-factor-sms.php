@@ -12,10 +12,10 @@
 
 define( 'TWO_FACTOR_SMS_DIR', plugin_dir_path( __FILE__ ) );
 
-function Two_Factor_Sms_init( $providers ) {
+function two_factor_sms_init( $providers ) {
 	$providers['Two_Factor_Sms'] = TWO_FACTOR_SMS_DIR . 'class.two-factor-sms.php';
 
 	return $providers;
 }
 
-add_filter( 'two_factor_providers', 'Two_Factor_Sms_init' );
+add_filter( 'two_factor_providers', 'two_factor_sms_init' );
