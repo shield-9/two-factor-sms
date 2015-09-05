@@ -242,10 +242,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		}
 
 		return (
-			get_user_meta( $user->ID, self::ACCOUNT_SID_META_KEY, true ) !== false
-			 && get_user_meta( $user->ID, self::AUTH_TOKEN_META_KEY, true ) !== false
-			 && get_user_meta( $user->ID, self::SENDER_NUMBER_META_KEY, true ) !== false
-			 && get_user_meta( $user->ID, self::RECEIVER_NUMBER_META_KEY, true ) !== false
+			! empty( get_user_meta( $user->ID, self::ACCOUNT_SID_META_KEY, true ) )
+			 && ! empty( get_user_meta( $user->ID, self::AUTH_TOKEN_META_KEY, true ) )
+			 && ! empty( get_user_meta( $user->ID, self::SENDER_NUMBER_META_KEY, true ) )
+			 && ! empty( get_user_meta( $user->ID, self::RECEIVER_NUMBER_META_KEY, true ) )
 		);
 	}
 
