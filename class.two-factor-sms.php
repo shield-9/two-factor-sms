@@ -265,6 +265,9 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 * @param WP_User $user WP_User object of the logged-in user.
 	 */
 	public static function show_user_profile( $user ) {
+		if ( did_action( 'user_profile_twilio' ) ) {
+			return;
+		}
 		?>
 		<div class="twilio" id="twilio-section">
 			<h3><?php esc_html_e( 'Twilio', 'two-factor-sms' ); ?></h3>
