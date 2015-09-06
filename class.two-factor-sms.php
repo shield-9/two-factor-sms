@@ -149,16 +149,15 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		$sender   = get_user_meta( $user->ID, self::SENDER_NUMBER_META_KEY,   true );
 		$receiver = get_user_meta( $user->ID, self::RECEIVER_NUMBER_META_KEY, true );
 
-		self::$twilio = new Services_Twilio($sid, $token);
+		self::$twilio = new Services_Twilio( $sid, $token );
 
 		$code = $this->generate_token( $user->ID );
 
 		try {
-
 			$message = self::$twilio->account->messages->create( array(
-				"From" => $sender,
-				"To"   => $receiver,
-				"Body" => wp_strip_all_tags(
+				'From' => $sender,
+				'To'   => $receiver,
+				'Body' => wp_strip_all_tags(
 					sprintf(
 						__( 'Your login confirmation code for %s is %s.', 'two-factor-sms' ),
 						get_bloginfo( 'name' ),
@@ -348,7 +347,15 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 		update_user_meta( $user_id, self::RECEIVER_NUMBER_META_KEY, $_POST['twilio-sms-receiver'] );
 	}
 
+	/**
+	 * Load Translations.
+	 *
+	 * @since 0.1.1
+	 *
+	 * @access public
+	 * @static
+	 */
 	public static function load_plugin_textdomain() {
-		load_plugin_textdomain( 'two-factor-sms', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'two-factor-sms', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 	}
 }

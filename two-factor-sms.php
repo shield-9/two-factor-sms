@@ -12,6 +12,14 @@
 
 define( 'TWO_FACTOR_SMS_DIR', plugin_dir_path( __FILE__ ) );
 
+/**
+ * Return path to Two Factor Sms plugin.
+ *
+ * @since 0.1-dev
+ *
+ * @param string[] $providers Array of providers.
+ * @return string[] Array of providers.
+ */
 function two_factor_sms_init( $providers ) {
 	$providers['Two_Factor_Sms'] = TWO_FACTOR_SMS_DIR . 'class.two-factor-sms.php';
 
