@@ -237,7 +237,7 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	 */
 	public function is_available_for_user( $user ) {
 		if ( ! $user ) {
-			return;
+			return false;
 		}
 
 		return (
