@@ -72,11 +72,10 @@ class Two_Factor_Sms extends Two_Factor_Provider {
 	protected function __construct() {
 		add_action( 'two-factor-user-options-' . __CLASS__, array( $this, 'user_options' ) );
 
-		add_action( 'show_user_profile',        array( __CLASS__, 'show_user_profile' ) );
-		add_action( 'edit_user_profile',        array( __CLASS__, 'show_user_profile' ) );
-		add_action( 'user_profile_twilio',      array( __CLASS__, 'show_twilio_item' ) );
-		add_action( 'personal_options_update',  array( __CLASS__, 'catch_submission' ), 0 );
-		add_action( 'edit_user_profile_update', array( __CLASS__, 'catch_submission' ), 0 );
+		add_action( 'show_user_security_settings', array( __CLASS__, 'show_user_profile' ) );
+		add_action( 'user_profile_twilio',         array( __CLASS__, 'show_twilio_item' ) );
+		add_action( 'personal_options_update',     array( __CLASS__, 'catch_submission' ), 0 );
+		add_action( 'edit_user_profile_update',    array( __CLASS__, 'catch_submission' ), 0 );
 
 		return parent::__construct();
 	}
